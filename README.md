@@ -8,7 +8,6 @@ Rag based on various books about child health
 2. (Recommended) Create and activate a [virtualenv](https://virtualenv.pypa.io/) under the `env/` directory. Git is already configured to ignore it.
 3. Install the very minimal requirements using `pip install -r requirements.txt`
 4. Run [Jupyter](https://jupyter.org/) in whatever way works for you. The simplest would be to run `pip install jupyter && jupyter notebook`.
-5. All relevant code and instructions are in [`Example.ipynb`](/Example.ipynb).
 
 ## Explanation
 
