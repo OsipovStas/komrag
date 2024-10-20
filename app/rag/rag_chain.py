@@ -1,6 +1,6 @@
-from dotenv import load_dotenv
 from langchain_openai import AzureChatOpenAI
 from langchain_openai import AzureOpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from pinecone import Pinecone, ServerlessSpec
 import os
 import time
@@ -8,13 +8,33 @@ from langchain_pinecone import PineconeVectorStore
 from langchain import hub
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
+from langchain_together import ChatTogether
 
 
 def create_rag_chain():
-    load_dotenv(".env", override=True)
     model = "gpt-4o-mini-2024-07-18"
     chat = AzureChatOpenAI(model=model, temperature=0, timeout=120)
     embeddings = AzureOpenAIEmbeddings(model="text-embedding-3-small-1", dimensions=768)
+    pc = Pinecone(api_key=os.environ['PINECONE_API_KEY'])
+    vectorstore = PineconeVectorStore(index=get_index(pc), embedding=embeddings)
+    retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 6})
+    prompt = hub.pull("rlm/rag-prompt")
+    rag_chain = (
+            {"context": retriever | format_docs, "question": RunnablePassthrough()}
+            | prompt
+            | chat
+            | StrOutputParser()
+    )
+    return rag_chain
+
+
+def create_rag_chain_colab():
+    chat = ChatTogether(
+        together_api_key=os.environ['TOGETHER_KEY'],
+        model="meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
+        timeout=120
+    )
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small", dimensions=768)
     pc = Pinecone(api_key=os.environ['PINECONE_API_KEY'])
     vectorstore = PineconeVectorStore(index=get_index(pc), embedding=embeddings)
     retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 6})

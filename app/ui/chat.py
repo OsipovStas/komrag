@@ -1,10 +1,16 @@
-from rag.rag_chain import create_rag_chain  # Replace with your actual import
+from rag.rag_chain import create_rag_chain, create_rag_chain_colab  # Replace with your actual import
 import streamlit as st
+import os
+from dotenv import load_dotenv
+
 
 
 @st.cache_resource
 def get_rag_chain():
-    return create_rag_chain()
+    if os.environ["IS_COLAB"]:
+        return create_rag_chain_colab()
+    else:
+        return create_rag_chain()
 
 
 def main():
@@ -35,4 +41,5 @@ def main():
 
 
 if __name__ == "__main__":
+    load_dotenv(".env", override=True)
     main()
