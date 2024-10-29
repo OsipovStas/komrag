@@ -2,3 +2,4 @@
 .ipynb_checkpoints/
 /models
 /app/.env
+/.streamlit/secrets.toml
