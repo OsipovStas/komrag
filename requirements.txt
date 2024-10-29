@@ -1,5 +1,10 @@
-dvc
-joblib
-notebook
-pandas
-scikit-learn
+python-dotenv==1.0.1
+langchain==0.3.3
+langchain-community==0.3.2
+langchain-core==0.3.12
+langchain-huggingface==0.1.0
+langchain-openai==0.2.2
+langchain-pinecone==0.2.0
+langchain-text-splitters==0.3.0
+langchain-together==0.2.0
+pinecone==5.3.1
