@@ -60,4 +60,67 @@ For a more detailed breakdown of the evaluation results, including specific scor
 
 This comprehensive evaluation ensures that our Baby Care Guide provides accurate and relevant information to parents, leveraging the strengths of advanced language models and efficient information retrieval.
 
+## Ingestion Pipeline and Reproducibility
 
+Our project includes an ingestion pipeline to process and prepare the data for the RAG (Retrieval-Augmented Generation) system. Currently, the ingestion process is implemented through a series of exploratory notebooks.
+
+To reproduce the ingestion and RAG preparation steps:
+
+1. Navigate to the `notebooks` folder in the repository.
+2. You'll find a collection of Jupyter notebooks that guide you through the entire process.
+3. These notebooks cover various stages, including:
+   - Data collection and cleaning
+   - Text preprocessing
+   - Embedding generation
+   - Vector store creation
+   - RAG system setup
+
+By following these notebooks, you can understand and replicate our data ingestion pipeline, allowing you to prepare your own data for use with the Baby Care Guide chatbot.
+
+Please note that these notebooks are primarily for exploration and demonstration purposes. In future updates, we plan to refactor this process into a more streamlined, production-ready pipeline.
+
+For any questions or issues related to the ingestion process, please refer to the documentation within each notebook or raise an issue in the GitHub repository.
+
+
+## Monitoring and Containerization
+
+We are currently in the process of enhancing our project's infrastructure and observability. This section outlines our ongoing efforts in monitoring and containerization.
+
+### Work in Progress
+
+- **Monitoring**: We are developing a comprehensive monitoring solution to track the performance, usage, and health of our application. This will include:
+  - Real-time performance metrics
+  - Usage statistics
+  - Error logging and alerting
+  - User interaction analysis
+
+- **Containerization**: To improve deployment consistency and scalability, we are working on containerizing our application. This involves:
+  - Creating Docker containers for the application and its dependencies
+  - Developing Docker Compose files for easy local development and testing
+  - Preparing Kubernetes manifests for potential cloud deployments
+
+These enhancements are aimed at improving the reliability, scalability, and maintainability of our Baby Care Guide chatbot. We appreciate your patience as we work on implementing these features.
+
+Stay tuned for updates in this space. Once completed, this section will provide detailed information on how to use our monitoring tools and containerized deployment options.
+
+## Deployment and RAG Implementation
+
+### Streamlit Cloud Deployment
+
+Our Baby Care Guide chatbot is deployed and readily accessible on Streamlit Cloud. This allows users to interact with the application directly through their web browsers without any local setup. You can access the live application here:
+
+[Baby Care Guide Chatbot on Streamlit Cloud](https://komrag-1.streamlit.app/)
+
+### RAG Pipeline
+
+The Retrieval-Augmented Generation (RAG) pipeline in our application utilizes a sophisticated hybrid search approach:
+
+1. **Hybrid Search**: We combine the strengths of multiple search techniques to ensure comprehensive and accurate information retrieval.
+
+2. **Dense Vector Search**: This method uses semantic similarity to find relevant information, allowing the system to understand and match the context of queries beyond simple keyword matching.
+
+3. **Additional Search Methods**: Complementing the dense vector search, we employ other techniques (such as BM25 or exact matching) to capture different aspects of relevance.
+
+This hybrid approach enables our chatbot to provide more accurate and contextually relevant responses to user queries about baby care. It balances the benefits of semantic understanding with the precision of traditional search methods, resulting in a more robust and reliable information retrieval system.
+
+The combination of our cloud deployment and advanced RAG implementation ensures that users have access to a powerful, up-to-date, and user-friendly baby care information system.
