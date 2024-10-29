@@ -36,7 +36,7 @@ Try it out now: [Baby Care Guide Chatbot](https://komrag-1.streamlit.app/)
 
 We have conducted a comprehensive evaluation of our RAG (Retrieval-Augmented Generation) system using the RAGAS library. The evaluation focuses on key metrics for both the generator and retriever components of our system.
 
-![Comparison of RAG Metrics](https://raw.githubusercontent.com/OsipovStas/komrag/resources/comparison_of_rag_metrics.png)
+![Comparison of RAG Metrics](https://raw.githubusercontent.com/OsipovStas/komrag/resources/avg_metrics_comparison.jpg)
 
 ### Metrics Explained:
 - **Generator Metrics**:
