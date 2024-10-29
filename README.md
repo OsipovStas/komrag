@@ -60,28 +60,38 @@ For a more detailed breakdown of the evaluation results, including specific scor
 
 This comprehensive evaluation ensures that our Baby Care Guide provides accurate and relevant information to parents, leveraging the strengths of advanced language models and efficient information retrieval.
 
-## Ingestion Pipeline and Reproducibility
+## Ingestion Pipeline
 
 Our project includes an ingestion pipeline to process and prepare the data for the RAG (Retrieval-Augmented Generation) system. Currently, the ingestion process is implemented through a series of exploratory notebooks.
 
 To reproduce the ingestion and RAG preparation steps:
 
-1. Navigate to the `notebooks` folder in the repository.
-2. You'll find a collection of Jupyter notebooks that guide you through the entire process.
-3. These notebooks cover various stages, including:
-   - Data collection and cleaning
-   - Text preprocessing
-   - Embedding generation
-   - Vector store creation
-   - RAG system setup
+1. Clone the repository to your local machine.
+
+2. Create a `.env` file in the root directory of the project.
+
+3. Add the  API keys to your `.env` file
+You can obtain  API keys for free from the following sites:
+- OpenAI: https://openai.com/
+- Together.ai: https://www.together.ai/
+- Pinecone: https://www.pinecone.io/
+
+4. Navigate to the `notebooks` folder in the repository.
+
+5. You'll find a collection of Jupyter notebooks that guide you through the entire process.
+
+6. These notebooks cover various stages, including:
+- Data collection and cleaning
+- Text preprocessing
+- Embedding generation
+- Vector store creation
+- RAG system setup
 
 By following these notebooks, you can understand and replicate our data ingestion pipeline, allowing you to prepare your own data for use with the Baby Care Guide chatbot.
 
 Please note that these notebooks are primarily for exploration and demonstration purposes. In future updates, we plan to refactor this process into a more streamlined, production-ready pipeline.
 
 For any questions or issues related to the ingestion process, please refer to the documentation within each notebook or raise an issue in the GitHub repository.
-
-
 ## Monitoring and Containerization
 
 We are currently in the process of enhancing our project's infrastructure and observability. This section outlines our ongoing efforts in monitoring and containerization.
