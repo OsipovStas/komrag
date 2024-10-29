@@ -1,6 +1,23 @@
-# komrag
+# Comprehensive Baby Care Guide
 
-Rag based on various books about child health
+Welcome to the "Comprehensive Baby Care Guide" project!
+
+This tool is designed to assist new parents in caring for their newborn, based on a curated set of books and authoritative sources on child health and development.
+
+Our project aims to:
+- Simplify the overwhelming task of infant care
+- Provide easy-to-follow guidelines
+- Offer practical tips and evidence-based recommendations
+
+The guide covers all aspects of early childcare, including:
+- Feeding schedules
+- Sleep routines
+- Common health concerns
+- Developmental milestones
+
+We've distilled a wealth of knowledge from respected pediatric resources into an accessible, user-friendly format.
+
+Whether you're a first-time parent or looking to refresh your knowledge, this project offers valuable insights to help you navigate the challenges of caring for your little one with confidence.
 
 ## Instructions
 
