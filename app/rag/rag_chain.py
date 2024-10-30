@@ -9,7 +9,7 @@ from langchain import hub
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_together import ChatTogether
-
+from utils.langfuse import langfuse_handler
 
 def create_rag_chain():
     model = "gpt-4o-mini-2024-07-18"
@@ -28,12 +28,16 @@ def create_rag_chain():
     return rag_chain
 
 
-def create_rag_chain_colab():
+def create_rag_chain_colab(config):
+    callbacks = []
+
     chat = ChatTogether(
         together_api_key=os.environ['TOGETHER_KEY'],
         model="meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
-        timeout=120
+        timeout=120,
+        callbacks=callbacks
     )
+
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small", dimensions=768)
     pc = Pinecone(api_key=os.environ['PINECONE_API_KEY'])
     vectorstore = PineconeVectorStore(index=get_index(pc), embedding=embeddings)
