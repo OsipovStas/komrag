@@ -1,0 +1,22 @@
+services:
+  magic:
+    image: mageai/mageai:latest
+    command:  /app/run_app.sh mage start ${PROJECT_NAME}
+    env_file:
+      - .env
+    build:
+      context: ..
+      dockerfile: ./orchestration/mageai/Dockerfile
+      args:
+        PROJECT_NAME: ${PROJECT_NAME}  # Pass the build argument
+    environment:
+      USER_CODE_PATH: /home/src/${PROJECT_NAME}
+    ports:
+      - 6789:6789
+    volumes:
+      - ./mageai:/home/src/
+      - ../app:/home/src/app
+      - ../requirements.txt:/home/src/requirements.txt
+      - ./ai/openai_client.py:/usr/local/lib/python3.10/site-packages/mage_ai/ai/openai_client.py
+      - ./ai/llm_pipeline_wizard.py:/usr/local/lib/python3.10/site-packages/mage_ai/ai/llm_pipeline_wizard.py
+    restart: on-failure:5
