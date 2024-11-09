@@ -20,3 +20,10 @@ services:
       - ./ai/openai_client.py:/usr/local/lib/python3.10/site-packages/mage_ai/ai/openai_client.py
       - ./ai/llm_pipeline_wizard.py:/usr/local/lib/python3.10/site-packages/mage_ai/ai/llm_pipeline_wizard.py
     restart: on-failure:5
+
+  streamlit:
+    build:
+      context: .. # This should point to where your Dockerfile is located
+      dockerfile: ./app/Dockerfile
+    ports:
+      - "8501:8501"  # Map port 8501 inside the container to port 8501 on the host
